@@ -152,28 +152,74 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mac搭建hexo记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/25/my-first-blog/">my first blog</a>
+      <a class="article-title" href="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/">mac搭建hexo记录</a>
     </h1>
   
 
         
-        <a href="/2020/08/25/my-first-blog/" class="archive-article-date">
-  	<time datetime="2020-08-25T13:34:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-25</time>
+        <a href="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2020-08-27T12:50:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="my-first-blog"><a href="#my-first-blog" class="headerlink" title="my first blog"></a>my first blog</h2><h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p>hello world</p>
-<p>#########</p>
+        <h2 id="macpro-搭建hexo环境并部署到github过程"><a href="#macpro-搭建hexo环境并部署到github过程" class="headerlink" title="macpro 搭建hexo环境并部署到github过程"></a>macpro 搭建hexo环境并部署到github过程</h2><h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><h4 id="1-安装node-js"><a href="#1-安装node-js" class="headerlink" title="1. 安装node.js"></a>1. 安装node.js</h4><p>这里就自己去官网下载安装好了，网址：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p>
+<p>可以打开终端使用命令检查no de.js是否安装好</p>
+<blockquote>
+<p>node -v</p>
+</blockquote>
+<h4 id="2-安装git"><a href="#2-安装git" class="headerlink" title="2. 安装git"></a>2. 安装git</h4><p>打开终端，输入</p>
+<blockquote>
+<p>git –version</p>
+</blockquote>
+<p>系统会提示安装，一直往下点安装即可</p>
+<p>成功后再输入上面命令显示如</p>
+<h3 id="二、正式安装hexo"><a href="#二、正式安装hexo" class="headerlink" title="二、正式安装hexo"></a>二、正式安装hexo</h3><h4 id="1-切换root用户"><a href="#1-切换root用户" class="headerlink" title="1. 切换root用户"></a>1. 切换root用户</h4><pre><code>    打开终端，需要切换到root用户进行操作</code></pre>
+<blockquote>
+<p>sudo su</p>
+</blockquote>
+<pre><code>   然后输入当前用户密码，切换成功后显示sh-3.2# </code></pre>
+<h4 id="2-因为直接安装会比较慢，所以这里先安装下cnpm淘宝镜像"><a href="#2-因为直接安装会比较慢，所以这里先安装下cnpm淘宝镜像" class="headerlink" title="2. 因为直接安装会比较慢，所以这里先安装下cnpm淘宝镜像"></a>2. 因为直接安装会比较慢，所以这里先安装下cnpm淘宝镜像</h4><blockquote>
+<p>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+</blockquote>
+<p>成功后使用下面命令进行检查</p>
+<blockquote>
+<p>cnpm -v</p>
+</blockquote>
+<p><img src="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/cnpmv.png"></p>
+<h4 id="3-使用下面命令进行hexo正式安装"><a href="#3-使用下面命令进行hexo正式安装" class="headerlink" title="3. 使用下面命令进行hexo正式安装"></a>3. 使用下面命令进行hexo正式安装</h4><blockquote>
+<p>cnpm install -g hexo-cli</p>
+</blockquote>
+<p><img src="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/hexo.png" alt="img"></p>
+<p>用hexo -v进行验证</p>
+<blockquote>
+<p>hexo -v</p>
+</blockquote>
+<p><img src="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/hexov.png" alt="img"></p>
+<h4 id="4-建立hexo博客存放文件夹"><a href="#4-建立hexo博客存放文件夹" class="headerlink" title="4.建立hexo博客存放文件夹"></a>4.建立hexo博客存放文件夹</h4><pre><code>新打开一个终端，使用普通客户登录，建立一个文件夹，用来存放hexo博客所有东西，后面如果有问题可以整个文件夹删掉重来，我这里命名为hexoblog</code></pre>
+<blockquote>
+<p>mkdir hexoblog</p>
+<p>cd hexoblog</p>
+</blockquote>
+<p>进入hexoblog目录输入下面命令，进行hexo初始化操作</p>
+<blockquote>
+<p>sudo hexo init</p>
+</blockquote>
+<p><img src="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/hexoinit.png" alt="img"></p>
+<h4 id="5-启动hexo"><a href="#5-启动hexo" class="headerlink" title="5. 启动hexo"></a>5. 启动hexo</h4><blockquote>
+<p>hexo s</p>
+</blockquote>
+<p><img src="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/hexos.png" alt="img"></p>
+<h4 id="6-浏览器输入上面url就能看到博客页面-http-localhost-4000"><a href="#6-浏览器输入上面url就能看到博客页面-http-localhost-4000" class="headerlink" title="6.浏览器输入上面url就能看到博客页面:http://localhost:4000"></a>6.浏览器输入上面url就能看到博客页面:<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a></h4><p><img src="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/hexolocal.png" alt="img"></p>
 
       
 
@@ -186,7 +232,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/25/my-first-blog/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/27/mac%E6%90%AD%E5%BB%BAhexo%E8%AE%B0%E5%BD%95/">展开全文 >></a>
         </p>
       
 
